@@ -17,11 +17,6 @@ class UtilityService
         return $km * 0.62;
     }
 
-    public function tomorrow()
-    {
-        return now()->addDay()->format('Y-m-d');
-    }
-
     public function sha256Digest($input)
     {
         return hash('sha256', $input);
@@ -31,4 +26,38 @@ class UtilityService
     {
         return md5($input);
     }
+
+   public function isEven($number)
+    {
+        if (!is_numeric($number)) {
+            return "Input tidak valid";
+        }
+        return $number % 2 === 0;
+    }
+    
+    public function reverseString($str)
+    {
+        return strrev($str);
+    }
+
+    public function calculateSquare($number)
+    {
+        if (!is_numeric($number)) {
+            return "Input tidak valid";
+        }
+        return $number * $number;
+    }
+
+    public function isPalindrome($str)
+    {
+        $clean = strtolower(str_replace(' ', '', $str));
+        return $clean === strrev($clean);
+    }
+
+   public function getFirstWord($str)
+    {
+        $trim = trim($str);
+        $parts = explode(" ", $trim);
+        return $parts[0] ?? "";
+    } 
 }
