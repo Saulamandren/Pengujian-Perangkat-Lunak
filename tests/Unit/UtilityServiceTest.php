@@ -105,4 +105,42 @@ public function test_md5_digest_changes()
         $this->assertEquals("Halo", $result);
     }
 
+ public function test_is_even_invalid_input()
+{
+    $svc = new UtilityService();
+    $this->assertEquals("Input tidak valid", $svc->isEven("abc"));
+}
+
+public function test_reverse_string_empty()
+{
+    $svc = new UtilityService();
+    $this->assertEquals("", $svc->reverseString(""));
+}
+
+public function test_calculate_square_negative()
+{
+    $svc = new UtilityService();
+    $this->assertEquals(16, $svc->calculateSquare(-4));
+}
+
+public function test_is_palindrome_case_insensitive()
+{
+    $svc = new UtilityService();
+    $this->assertTrue($svc->isPalindrome("Level"));
+}
+
+
+public function test_get_first_word_only_spaces()
+{
+    $svc = new UtilityService();
+    $this->assertEquals("", $svc->getFirstWord("     "));
+}
+
+public function test_sha256_length()
+{
+    $svc = new UtilityService();
+    $this->assertEquals(64, strlen($svc->sha256Digest("abc")));
+}
+
+
 }
